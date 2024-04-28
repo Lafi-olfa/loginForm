@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 header{
     top:0;
     left: 0;
@@ -15,13 +16,17 @@ header{
     align-items: center;
     z-index: 99;
 }
+.icon-bars{
+    transform: scale(0);
+}
 
 .logo{
     font-size: 2em;
     color: aliceblue;
     user-select: none;
+
 }
-.navigation a{
+.navigation .link{
     position: relative;
     font-size: 1.1em;
     color: #fff;
@@ -47,7 +52,7 @@ header{
     background: #fff;
     color: black;
 }
-.navigation a::after{
+.navigation .link::after{
     content: '';
     position: absolute;
     left: 0;
@@ -58,8 +63,9 @@ header{
     border-radius: 5px;
     transform: scaleX(0);
     transition: transform .5s ;
+
 }
-.navigation a:hover::after{
+.navigation .link:hover::after{
     transform: scale(1);
 }
 body {
@@ -86,6 +92,10 @@ body {
     overflow: hidden;
     transform: scale(0);
     transition: transform .10s ease height .2s ease ;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .wrapper.active{
@@ -138,11 +148,23 @@ body {
 .wrapper .form-conatiner.register{
     position: absolute;
     transition: none;
-    transform: translateX(400px)
+    transform: translateX(400px);
+    -webkit-transform: translateX(400px);
+    -moz-transform: translateX(400px);
+    -ms-transform: translateX(400px);
+    -o-transform: translateX(400px);
 }
 .wrapper.active .form-conatiner.register{
     transition: transform .18s ease;
     transform: translateX(0);
+    -webkit-transition: transform .18s ease;
+    -moz-transition: transform .18s ease;
+    -ms-transition: transform .18s ease;
+    -o-transition: transform .18s ease;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
 }
 .wrapper .form-conatiner h2{
     font-size: 2em;
@@ -239,4 +261,116 @@ body {
 }
 .login-register a:hover{
     text-decoration: underline;
+}
+
+@media screen and (max-width: 320px) {
+    header {
+        padding: 20px; /* Réduire le padding */
+    }
+
+    .logo {
+        font-size: 1.2em; 
+    }
+
+    .navigation .link {
+        visibility: hidden;
+        font-size: 0.9em;
+    }
+
+    .navigation .btn-login {
+        width: 80px;
+        margin-left: 10px;
+        display: none;
+    }
+    .wrapper.form-active.active-popup.active{
+        height: 400px;
+    }
+    .icon-bars{
+        transform: scale(1);
+        font-size: 400;
+        color: white;
+        font-size: 2rem;
+}
+
+    header.active-icon-bars .logo{
+        visibility: visible;   
+        font-size: 1.2em;
+        position: relative; 
+        top: -46px;
+    }
+
+    header.active-icon-bars .navigation .link{
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        font-weight: 400;
+        font-size: 1em;
+        top:100px;
+        left:60px;
+        color: white;
+        padding: 3px;
+    }
+    header.active-icon-bars .navigation button{
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        top: 110px;
+        left: 90px;
+        cursor: pointer;
+
+        
+    }
+
+    header.active-icon-bars .navigation button:hover{
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        top: 110px;
+        left: 90px;
+        cursor: pointer;
+
+        
+    }
+   header.active-icon-bars .fa-bars{
+        visibility: hidden;
+    }
+
+    header.active-icon-bars .fa-xmark{
+        font-size: 400;
+        color: white;
+        font-size: 2rem;
+        position: relative;
+        top: -46px;
+        right: 20px;
+    }
+    
+    header.active-icon-bars .navigation .link:after{
+        text-decoration: underline;
+        background: gray;
+    } 
+    .wrapper.form-active {
+        color: red;
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 300px;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,.5);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
 }
